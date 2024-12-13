@@ -1,19 +1,20 @@
 import React from "react";
 import { Grid, Row, Col } from "rsuite";
-import { getCamleCaseString } from "../../../constants/pokemon.types";
+import { getCamelCaseString } from "../../../constants/pokemon.types";
 import "./statCard.scss";
 type StatCardProps = {
   stats?: any[]
 };
 const StatCard: React.FC<StatCardProps> = ({ stats }) => {
   // const {data} = data;
-  const getStatHeading = name => {
+  const getStatHeading = (name: any) => {
     if (name === "hp") {
       return "HP";
     } else {
-      let [firstName, lastName] = name.split("-");
-      if (firstName === "special" && lastName) return (firstName = "Sp. " + getCamleCaseString(lastName));
-      else return getCamleCaseString(firstName);
+      let firstName = name.split("-")[0];
+      const [, lastName] = name.split("-");
+      if (firstName === "special" && lastName) return (firstName = "Sp. " + getCamelCaseString(lastName));
+      else return getCamelCaseString(firstName);
     }
   };
   return (

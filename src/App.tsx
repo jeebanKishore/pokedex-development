@@ -1,12 +1,15 @@
-import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import React, { Suspense } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
 import 'rsuite/styles/index.less';
 import 'rsuite/dist/rsuite.min.css';
 import { ROUTES } from './constants/routepaths';
 import { PokemonProvider } from './context/pokemonContext/pokemon.provider';
+
+// Lazy load pages
 const HomePage = React.lazy(() => import('./pages/home/home.page'));
 const DetailPage = React.lazy(() => import('./pages/details/details.page'));
+
 function App() {
   return (
     <>
@@ -17,7 +20,7 @@ function App() {
               <Route
                 path={ROUTES.HOME}
                 element={
-                  <Suspense fallback={<div>Loading</div>}>
+                  <Suspense fallback={<div>Loading...</div>}>
                     <HomePage />
                   </Suspense>
                 }
@@ -25,7 +28,7 @@ function App() {
               <Route
                 path={ROUTES.DETAILS}
                 element={
-                  <Suspense fallback={<div>Loading</div>}>
+                  <Suspense fallback={<div>Loading...</div>}>
                     <DetailPage />
                   </Suspense>
                 }
@@ -37,4 +40,5 @@ function App() {
     </>
   );
 }
+
 export default App;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col } from 'rsuite';
-import { getCamleCaseString } from '../../../constants/pokemon.types';
+import { getCamelCaseString } from '../../../constants/pokemon.types';
 import ColorfulTag from '../colorfulTags/colorfulTag';
 import './propertyCard.scss';
 import '../../../styles/common.scss';
@@ -46,7 +46,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ speciesData, data, pokemonT
               {speciesData.egg_groups.length &&
                 speciesData.egg_groups.map((item, index) => (
                   <span key={item.name} className="prop-header-data">
-                    {getCamleCaseString(item.name)}
+                    {getCamelCaseString(item.name)}
                     {speciesData.egg_groups.length !== index + 1 && <span>,</span>}
                   </span>
                 ))}
@@ -62,7 +62,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ speciesData, data, pokemonT
               {data.abilities.length &&
                 data.abilities.map((item, index) => (
                   <span key={item.ability.name} className="prop-header-data">
-                    {getCamleCaseString(item.ability.name)}
+                    {getCamelCaseString(item.ability.name)}
                     {data.abilities.length !== index + 1 && <span>,</span>}
                   </span>
                 ))}
@@ -77,7 +77,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ speciesData, data, pokemonT
                 <div className="type-wrap">
                   {data.types.length &&
                     data.types.map((item, index) => (
-                      <ColorfulTag className="pr-1" key={item.type.name + index} type={item.type.name} text={getCamleCaseString(item.type.name)} />
+                      <ColorfulTag className="pr-1" key={item.type.name + index} type={item.type.name} text={getCamelCaseString(item.type.name)} />
                     ))}
                 </div>
               </div>
@@ -91,7 +91,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ speciesData, data, pokemonT
               <div className="prop-header-data type-wrap">
                 {pokemonTypeData.damage_relations.double_damage_from.length &&
                   pokemonTypeData.damage_relations.double_damage_from.map((item, index) => (
-                    <ColorfulTag key={item.name + index} className="pr-1" type={item.name} text={getCamleCaseString(item.name)} />
+                    <ColorfulTag key={item.name + index} className="pr-1" type={item.name} text={getCamelCaseString(item.name)} />
                   ))}
               </div>
             </div>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React from "react";
 import "./evolutionChainCard.scss";
 import "../../../styles/common.scss";

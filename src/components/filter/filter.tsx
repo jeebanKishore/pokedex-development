@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Col, Row } from "rsuite";
 import { debounceTime, distinctUntilChanged, map, of } from "rxjs";
 import { baseURL, SEARCH_SLICED } from "../../constants/apiUrls";
-import { getCamleCaseString } from "../../constants/pokemon.types";
+import { getCamelCaseString } from "../../constants/pokemon.types";
 import PokemonContext from "../../context/pokemonContext/pokmon.context";
 import { getAllParallelCall, getPokemonGenders, getPokemonTypes, removeDuplicateBy } from "../../services/common.service";
 import "./filter.scss";
@@ -16,7 +16,7 @@ const AppFilter: React.FC<AppFilterProps> = ({ ...props }) => {
     const { allPokemonsList, pokemonsTypes, pokemonGenderList } = state;
     const [isOpenTypeFilter, setIsOpenTypeFilter] = useState(false);
     const [isOpenGendreFilter, setIsOpenGenderFilter] = useState(false);
-    var data$ = of([]);
+    let data$ = of([]);
     const onOpenTypeHandler = () => {
         setIsOpenTypeFilter(true);
     };
@@ -117,7 +117,7 @@ const AppFilter: React.FC<AppFilterProps> = ({ ...props }) => {
     };
     const setPokemonTypes = data => {
         if (data.length) {
-            data = data.map(item => ({ label: getCamleCaseString(item.name), value: item.url, url: item.url }));
+            data = data.map(item => ({ label: getCamelCaseString(item.name), value: item.url, url: item.url }));
             dispatch({
                 type: "ACTIONS.SET_POKEMON_TYPE",
                 payload: data
@@ -130,7 +130,7 @@ const AppFilter: React.FC<AppFilterProps> = ({ ...props }) => {
         }
     };
     const setPokemonGendersList = genderList => {
-        genderList = genderList.map(item => ({ label: getCamleCaseString(item.name), value: item.url, url: item.url }));
+        genderList = genderList.map(item => ({ label: getCamelCaseString(item.name), value: item.url, url: item.url }));
         if (genderList.length) {
             dispatch({
                 type: "ACTIONS.SET_POKEMON_GENDER_LIST",
