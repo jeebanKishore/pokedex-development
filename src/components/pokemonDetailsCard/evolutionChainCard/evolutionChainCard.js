@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-import React from "react";
-import "./evolutionChainCard.scss";
+import React from 'react';
+import "./evolutionChainCard.scss"
 import "../../../styles/common.scss";
 import PokemonCard from "../../pokemonCard/pokemonCard";
-import rightArrowIcon from "../../../assets/icons/right-arrow.png";
-type EvolutionChainCardProps = {
-    data?: object
-};
-const EvolutionChainCard: React.FC<EvolutionChainCardProps> = ({ data }) => {
+import rightArrowIcon from "../../../assets/icons/right-arrow.png"
+import PropTypes from 'prop-types';
+
+const EvolutionChainCard = ({ data }) => {
     const arrayele = [1, 2, 3];
+
     return (
         <div>
             <div className="evol-container">
@@ -23,15 +22,18 @@ const EvolutionChainCard: React.FC<EvolutionChainCardProps> = ({ data }) => {
                             {arrayele.length !== index + 1 && (
                                 <div>
                                     <div className="evol-next-arrow">
-                                        <img src={rightArrowIcon} alt="right arrow icon" onKeyDown={() => {}} role="presentation" />
+                                    <img src={rightArrowIcon} alt="right arrow icon" onKeyDown={() => { }} role="presentation"></img>
                                     </div>
-                                </div>
-                            )}
-                        </div>
-                    ))}
+                                </div>)}
+                        </div>))}
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
+
+EvolutionChainCard.propTypes = {
+    data: PropTypes.object,
+}
+
 export default EvolutionChainCard;
